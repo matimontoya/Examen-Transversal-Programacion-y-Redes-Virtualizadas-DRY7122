@@ -1,7 +1,6 @@
 import requests
 import urllib.parse
 
-# Reemplaza con tu clave de Graphhopper
 key = "17102e5e-af0a-4ddd-a86f-c7934e192837"
 geocode_url = "https://graphhopper.com/api/1/geocode?"
 route_url = "https://graphhopper.com/api/1/route?"
@@ -12,7 +11,6 @@ def obtener_coordenadas(ciudad):
     if respuesta.status_code == 200:
         json_data = respuesta.json()
         if "hits" in json_data and len(json_data["hits"]) > 0:
-            # Aquí está la corrección: agregar ["point"]
             lat = json_data["hits"][0]["point"]["lat"]
             lng = json_data["hits"][0]["point"]["lng"]
             return f"{lat},{lng}"

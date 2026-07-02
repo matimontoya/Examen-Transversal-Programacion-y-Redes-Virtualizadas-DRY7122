@@ -1,0 +1,14 @@
+---
+- name: Respaldo de configuración
+  hosts: CSR1kv
+  gather_facts: false
+  tasks:
+    - name: Obtener running-config
+      ios_command:
+        commands: show running-config
+      register: config_output
+
+    - name: Guardar respaldo en archivo local
+      copy:
+        content: "{{ config_output.stdout[0] }}"
+        dest: "./respaldo_csr1000v.txt"

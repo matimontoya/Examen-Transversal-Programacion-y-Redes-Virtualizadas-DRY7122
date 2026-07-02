@@ -1,14 +1,10 @@
-# vlan_range.py
-# Script para evaluar si un ID de VLAN pertenece al rango normal o extendido
 
 def evaluar_vlan():
     print("\n--- ANALIZADOR DE RANGOS DE VLAN (Cisco Architecture) ---")
     
     try:
-        # Captura y casteo del ID de VLAN ingresado por el usuario
         vlan_id = int(input("[?] Ingrese el número de VLAN a evaluar: "))
         
-        # Lógica condicional basada en estándares de red y rangos IEEE 802.1Q
         if vlan_id == 1:
             print(f"[*] VLAN {vlan_id}: Corresponde a la VLAN predeterminada (Default Rango Normal).")
         elif vlan_id >= 2 and vlan_id <= 1001:
